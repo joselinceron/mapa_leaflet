@@ -1,4 +1,0 @@
-# mapa_leaflet
-Mi primer mapa con Leaflet, parte de las actividades realizadas en la materia "Geoinformática" de la Maestría en Ciencias de la Información Geoespacial en Centro Geo.
-# link al mapa
- https://joselin02.github.io/mapa_leaflet/
