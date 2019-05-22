@@ -9,15 +9,12 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
   <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
 
- <!-- Position the map and title with Cascading Style Sheet (.css) -->
-  <style>
-  body { margin:0; padding:0; }
-  #map { position: absolute; top:0; bottom:0; right:0; left:0; }
-  #map-title { position: relative; margin-top: 10px; margin-left: 50px; float: left; background: white; border: 2px solid rgba(0,0,0,0.2); padding: 6px 8px; font-family: Helvetica; font-weight: bold; font-size: 24px; z-index: 800; }
-	
   </head>
   <body>
-    <div id="mapid" style="width: 600px; height: 400px;"></div>
+	  <!-- Display the map and title with HTML division tags  -->
+	  <div id="map-title">Geoinformática - Joselin Ceron</div>
+  	  <div id="map"></div>
+    
   <script>
     var mymap = L.map('mapid').setView([19.415847, -99.051240], 13);
   
