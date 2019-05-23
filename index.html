@@ -14,7 +14,8 @@
 	
 	<!-- Cargar jquery -->
     <script src="https://code.jquery.com/jquery-2.2.3.js"></script>
-
+	
+	
 	<!-- Position the map and title with Cascading Style Sheet (.css) -->
 	  <style>
 	  body { margin:0; padding:0; }
@@ -42,14 +43,22 @@
 	var transport = L.tileLayer('https://tile.thunderforest.com/transport/{z}/{x}/{y}.png?apikey=346585a3594c4671979ebe96e8cf3a8d', {
 		attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 		apikey: '<346585a3594c4671979ebe96e8cf3a8d>',	maxZoom: 22});
-	 
-// Controlador de capas
+		
+// Geojson
+	// Crear variables para archivo GeoJSON
+		var muni = L.geoJson(null)
+		
+	// Cargar archivo GeoJSON
+		$.getJSON("mun.geojson", function (data) {
+				muni.addData(data)});
 	
-	var capa = L.layerGroup([nexrad, example, transport]);
+// Grupo de Capas
+	
+	var capa = L.layerGroup([nexrad, example, transport, muni]);
 
 // Inicialización del mapa
 
-	var mymap = L.map('mapid', {layers: [example, nexrad]}).setView([19.416542974303415, -99.05114650726318], 12);
+	var mymap = L.map('mapid', {layers: [example, nexrad, transport]}).setView([19.416542974303415, -99.05114650726318], 12);
 	 L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}{r}.png', {
 		attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 		}).addTo(mymap);
@@ -58,12 +67,15 @@
     "OpenStreetMap": example,
     "B&W": nexrad,
 	"Transporte": transport,
+	"Municipio": muni	
 	};
 	
-		
+	
+			
+	
 //Cargar capa
 	
-	L.control.layers(baseMaps).addTo(mymap);	
+	L.control.layers(baseMaps).addTo(mymap);
 	
 	var myicon = L.icon({
 		iconUrl: 'leaf-red.png',
