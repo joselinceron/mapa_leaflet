@@ -12,7 +12,7 @@
 	
 	<!-- Para cada archivo hay que tener un scrip -->
 	<script type="text/javascript" src="neza_ageb.js"></script>
-	
+	<script type="text/javascript" src="municipios_mex.js"></script>
 	
 	<!-- Position the map and title with Cascading Style Sheet (.css) -->
 	  <style>
@@ -41,11 +41,24 @@
 	var transport = L.tileLayer('https://tile.thunderforest.com/transport/{z}/{x}/{y}.png?apikey=346585a3594c4671979ebe96e8cf3a8d', {
 		attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 		apikey: '<346585a3594c4671979ebe96e8cf3a8d>',	maxZoom: 22});
-		
+
+// Estilo para capa
+	var myStyle = {
+    "color": "#ff7800",
+    "weight": 0.5,
+    "opacity": 0.65
+};
+
+
 // Geojson
 	var geojsonlayer = L.geoJson(municipio_n, {
 		onEachFeature: function (feature, layer) {
 		layer.bindPopup("Población 2010: " + feature.properties.pob_tot +" habitantes")}});
+	
+	var geojsonlay = L.geoJson(municipios, {
+		style: myStyle, 
+		onEachFeature: function (feature, layer) {
+		layer.bindPopup("Municipio: " + feature.properties.NOMGEO)}});
 
 	
 // Grupo de Capas
@@ -63,7 +76,8 @@
     "OpenStreetMap": example,
     "B&W": nexrad,
 	"Transporte": transport,
-	"Población/AGEB 2010": geojsonlayer
+	"Municipios Edo. Méx.": geojsonlay,	
+	"Población Nezahualcóyotl/AGEB 2010": geojsonlayer
 	};
 	
 	
