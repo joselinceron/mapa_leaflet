@@ -3,20 +3,16 @@
 <head>
 	
 	<title>Quick Start - Leaflet</title>
-
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
 	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
-
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+	<script src="https://code.jquery.com/jquery-2.2.3.js"></script>
 	
-	<!-- Cargar jquery -->
-    <script src="https://code.jquery.com/jquery-2.2.3.js"></script>
-	
-<!-- Para cada archivo hay que tener un scrip -->
+	<!-- Para cada archivo hay que tener un scrip -->
 	<script type="text/javascript" src="neza_ageb.js"></script>
+	
 	
 	<!-- Position the map and title with Cascading Style Sheet (.css) -->
 	  <style>
@@ -30,7 +26,7 @@
 <body>
 <!-- Display the map and title with HTML division tags  -->
 	<div id="mapid-title"><b>Geoinformática - Joselin Ceron</b></div>
-	<div id="mapid" style="width: 1360px; height: 565px;"></div>
+	<div id="mapid" style="width: 1341px; height: 640px;"></div>
 
 <!-- Create the map content with JavaScript (.js) -->
 <script>
@@ -45,12 +41,12 @@
 	var transport = L.tileLayer('https://tile.thunderforest.com/transport/{z}/{x}/{y}.png?apikey=346585a3594c4671979ebe96e8cf3a8d', {
 		attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 		apikey: '<346585a3594c4671979ebe96e8cf3a8d>',	maxZoom: 22});
-	
+		
 // Geojson
 	var geojsonlayer = L.geoJson(municipio_n, {
 		onEachFeature: function (feature, layer) {
 		layer.bindPopup("Población 2010: " + feature.properties.pob_tot +" habitantes")}});
-	
+
 	
 // Grupo de Capas
 	
@@ -64,11 +60,13 @@
 		}).addTo(mymap);
 	
 	var baseMaps = {
-	    "OpenStreetMap": example,
-	    "B&W": nexrad,
-	    "Transporte": transport,
-	    "Población/AGEB 2010: geojsonlayer
+    "OpenStreetMap": example,
+    "B&W": nexrad,
+	"Transporte": transport,
+	"Población/AGEB 2010": geojsonlayer
 	};
+	
+	
 
 			
 	
