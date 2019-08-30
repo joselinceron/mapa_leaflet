@@ -59,7 +59,17 @@
 		style: myStyle, 
 		onEachFeature: function (feature, layer) {
 		layer.bindPopup("Municipio: " + feature.properties.NOMGEO)}});
-
+//Agregando marcadores
+  var lug = [
+	  [19.416202, -99.051411],
+	  [19.416276, -99.049246],
+	  [19.420379, -99.049467],
+	  ];
+  var arreglolug = [];
+	
+  for (var i=0; i < lug.length; i++) {
+	  arreglolug[i] = new.Lmarker(lugares[i]).addTo(mymap);
+  }
 	
 // Grupo de Capas
 	
@@ -80,17 +90,7 @@
 	"Población Nezahualcóyotl/AGEB 2010": geojsonlayer
 	};
 	
-//Agregando marcadores
-  var lug = [
-	  [19.416202, -99.051411],
-	  [19.416276, -99.049246],
-	  [19.420379, -99.049467],
-	  ];
-  var arreglolug = [];
-	
-  for (var i=0; i < lug.length; i++) {
-	  arreglolug[i] = new.Lmarker(lugares[i]).addTo(mymap);
-  }
+
 	
   
 	  
